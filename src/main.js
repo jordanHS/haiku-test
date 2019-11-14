@@ -2,14 +2,16 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { convert } from './roman-numerals';
+import { Haiku } from './haiku';
 
 
 $(document).ready(function() {
-  $("form#conversionForm").submit(function(event) {
+  $('#haikuForm').submit(function(event) {
     event.preventDefault();
-    var conversion = convert($("input#userInput").val());
-    $("#conversionResult").text(conversion);
-    $("#result").show();
+    let firstLine = $("#firstLine").val();
+    let secondLine = $("#secondLine").val();
+    let thirdLine = $("#thirdLine").val();
+    let haiku = new Haiku(firstLine, secondLine, thirdLine);
+    $("#solution").text(haiku.isValid());
   });
 });
