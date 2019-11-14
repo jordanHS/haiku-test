@@ -9,15 +9,15 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  devtool: 'eval-source-map',  // new line
-  devServer: {                 // new line
-   contentBase: './dist'      // new line
+  devtool: 'eval-source-map',
+  devServer: {
+   contentBase: './dist'
  },
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'TriangleTracker',
+      title: 'romman-npm',
       template: './src/index.html',
       inject: 'body'
     })
