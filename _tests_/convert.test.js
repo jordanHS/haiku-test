@@ -1,16 +1,20 @@
-import { convert } from './../src/roman-numerals.js';
-import { arabicNumerals } from './../src/roman-numerals.js';
-import { romanNumerals } from './../src/roman-numerals.js';
-import { result } from './../src/roman-numerals.js';
 
-describe('Convert', () => {
+import { Haiku } from './../src/haiku.js';
 
-  test('should correctly assess no more than 3 of the same characters', () => {
-    var input = convert(5)
-    expect(input.length).toBeLessThan(4);
+describe('Haiku', () => {
+
+  test('should correctly assess 3 sentences', () => {
+    var input1 = new Haiku ("hello", "hi", "howrya")
+    expect(input1.line1).toContain("hello");
+    expect(input1.line2).toContain("hi");
+    expect(input1.line3).toContain("howrya");
   });
-  test('should not convert numbers greater than 4000', () => {
-    var input1 = arabicNumerals
-    expect(input1).toBeLessThan(4000);
+  test('shouled correctly assses if poem is a not Haiku', () => {
+    var input2 = new Haiku ("hellop", "hip", "howryah")
+    expect(input2.isValid()).toContain("That is not a Haiku!");
+});
+  test('should correctly count syllables', () => {
+    var input3 = new Haiku ("how are ya")
+    expect(input3.syllableChecker()).toEqual(3);
 });
 })

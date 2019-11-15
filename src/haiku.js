@@ -12,7 +12,7 @@ export class Haiku{
     for(let i = 0; i < line.length; i++){
       if(vowelArr.includes(line[i])){
         if(i === line.length - 1){
-          count++;
+          count--;
         }
         else if(line[i] !== line[i+1]){
           count++;
@@ -29,7 +29,7 @@ export class Haiku{
     if (this.syllableChecker(this.line1) === 5 && this.syllableChecker(this.line2) === 7 && this.syllableChecker(this.line3) === 5) {
       return "That is a Haiku!";
     } else {
-      return "That is not a Haiku";
+      return "That is not a Haiku!";
     }
   }
 }
